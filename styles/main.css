@@ -1,0 +1,13 @@
+.bg-green {
+    background-color: rgb(2, 114, 2);
+    color: white;
+}
+.list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.296);
+    cursor: pointer;
+}
+body {
+    min-height: 100vh;
+    width: 50%;
+    margin: auto;
+}
