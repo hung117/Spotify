@@ -32,3 +32,5 @@ encode it in onclick
 const refreshSongCard = (songDetail) => {
     songDetail = JSON.parse(decodeURIComponent(songDetail));
 ```
+
+    const track = await API_controller.getTrack(storedToken, trackEndpoint);
