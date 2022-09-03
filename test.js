@@ -24,15 +24,17 @@ let playlists = [
 
 let genresDisplay = document.querySelector("#genres");
 const createGenre = (genre, genreId) => {
-    console.log(genreId);
-
     // let genreElement = `<li><a class="dropdown-item" onclick="initPlaylist(${genreId})" href="#">${genre}</a></li>`;
     let genreElement = `<li><a class="dropdown-item" 
-    onclick="initPlaylist('${encodeURIComponent(JSON.stringify(genreId))}')" 
+    onclick="initPlaylist('${encodeURIComponent(
+        JSON.stringify(genreId)
+    )}','${encodeURIComponent(JSON.stringify(genre))}')" 
     href="#">${genre}</a></li>`;
+
     genresDisplay.innerHTML += genreElement;
 };
-const initPlaylist = async (genreId) => {
+let curGenre;
+const initPlaylist = async (genreId, genre) => {
     genreId = JSON.parse(decodeURIComponent(genreId));
     playlists = await API_controller.getPlaylistByGenre(storedToken, genreId);
     console.log(playlists);
@@ -42,10 +44,13 @@ const initPlaylist = async (genreId) => {
     playlists.forEach((playlist) => {
         createPlaylist(playlist);
     });
+    document.querySelector("#GenreSelectBtn").innerHTML = JSON.parse(
+        decodeURIComponent(genre)
+    );
 };
 const initTrackResult = async (playlist) => {
     playlist = JSON.parse(decodeURIComponent(playlist));
-
+    document.querySelector("#playListSelectBtn").innerHTML = playlist.name;
     const tracksEndPoint = playlist.tracks.href;
     console.log(tracksEndPoint);
     const tracks = await API_controller.getTracks(storedToken, tracksEndPoint);
@@ -59,8 +64,8 @@ const initTrackResult = async (playlist) => {
     // tracks.forEach((trackObj) => {
     for (const trackObj of tracks) {
         const track = trackObj.track;
-        console.log(track.name + " ");
-        console.log(track);
+        // console.log(track.name + " ");
+        // console.log(track);
         let artists = "";
         track.artists.forEach((artist) => {
             artists += artist.name;
@@ -77,6 +82,8 @@ const initTrackResult = async (playlist) => {
         };
         SongResult.push(trackData);
     }
+    clear(playlistsDisplay);
+    clear(songResult_display);
     songResult_display.innerHTML += `<li
     class="list-group-item disabled"
     aria-disabled="true">
@@ -169,33 +176,30 @@ const refreshSongCard = (songDetail) => {
                     </div>
                      `;
     audioSrc.src = songDetail.trackPreview;
-    console.log(audioSrc.src);
+    // console.log(audioSrc.src);
     audioPlayer.load();
     audioPlayer.play();
     // console.log("audioPlayer.src");
     songCard.innerHTML = card;
-    console.log(songDetail);
+    // console.log(songDetail);
 };
-
 // ===========================
-const test = (function () {
-    clear(playlistsDisplay);
-    clear(genresDisplay);
-    clear(songResult_display);
-    for (const playlist of playlists) {
-        createPlaylist(playlist);
-    }
-    for (const genre of genres) {
-        createGenre(genre);
-    }
 
-    let songIndex = 0;
-    // for (const song of SongResult) {
-    //     if (songIndex < 5) {
-    //         createSongResult(song);
-    //     }
-    //     songIndex++;
-    // }
+let SearchBar = document.querySelector("#SearchBar");
+SearchBar.addEventListener("keydown", (event) => {
+    if (event.key == "Enter") {
+        search();
+    }
+});
+async function search() {
+    clear(playlistsDisplay);
+    clear(songResult_display);
+    const searchResult = await API_controller.search(
+        storedToken,
+        SearchBar.value
+    );
+    console.log(searchResult);
+    SongResult = searchResult;
     songResult_display.innerHTML += `<li
     class="list-group-item disabled"
     aria-disabled="true">
@@ -204,9 +208,6 @@ const test = (function () {
     for (const song of SongResult) {
         createSongResult(song);
     }
-
-    //===
-    // for (const song of SongResult) {
-    //     refreshSongCard(song);
-    // }
-})();
+}
+clear(playlistsDisplay);
+clear(songResult_display);

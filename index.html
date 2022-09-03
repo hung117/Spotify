@@ -28,13 +28,13 @@
                         <button
                             class="btn btn-secondary dropdown-toggle"
                             type="button"
-                            id="dropdownMenuButton1"
+                            id="GenreSelectBtn"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
                             Genres
                         </button>
-                        <ul id="genres"class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <ul id="genres"class="dropdown-menu" aria-labelledby="GenreSelectBtn">
                             <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li>
@@ -54,13 +54,13 @@
                             <button
                                 class="btn btn-secondary dropdown-toggle"
                                 type="button"
-                                id="dropdownMenuButton1"
+                                id="playListSelectBtn"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
                                 Playlist select
                             </button>
-                            <ul id="playlists" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <ul id="playlists" class="dropdown-menu" aria-labelledby="playListSelectBtn">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li>
@@ -76,13 +76,14 @@
                 <div class="row">
                     <div class="input-group">
                         <input
+                            id="SearchBar",
                             type="search"
                             class="form-control rounded p-3"
                             placeholder="Search"
                             aria-label="Search"
                             aria-describedby="search-addon"
-                        />
-                        <button type="button" class="btn btn-outline-primary">
+>                        
+                        <button type="button" onclick="search()" class="btn btn-outline-primary">
                             search
                         </button>
                     </div>
@@ -135,61 +136,7 @@
             <div class="footer mt-auto">
                 <footer class="bg-green text-center text-white">
                     <!-- Grid container -->
-                    <div class="container p-4 pb-0">
-                        <!-- Section: Form -->
-                        <section class="">
-                            <form action="">
-                                <!--Grid row-->
-                                <div class="row d-flex justify-content-center">
-                                    <!--Grid column-->
-                                    <div class="col-auto">
-                                        <p class="pt-2">
-                                            <strong
-                                                >Sign up for our
-                                                newsletter</strong
-                                            >
-                                        </p>
-                                    </div>
-                                    <!--Grid column-->
-
-                                    <!--Grid column-->
-                                    <div class="col-md-5 col-12">
-                                        <!-- Email input -->
-                                        <div
-                                            class="form-outline form-white mb-4"
-                                        >
-                                            <input
-                                                type="email"
-                                                id="form5Example29"
-                                                class="form-control"
-                                            />
-                                            <label
-                                                class="form-label"
-                                                for="form5Example29"
-                                                >Email address</label
-                                            >
-                                        </div>
-                                    </div>
-                                    <!--Grid column-->
-
-                                    <!--Grid column-->
-                                    <div class="col-auto">
-                                        <!-- Submit button -->
-                                        <button
-                                            type="submit"
-                                            class="btn btn-outline-light mb-4"
-                                        >
-                                            Subscribe
-                                        </button>
-                                    </div>
-                                    <!--Grid column-->
-                                </div>
-                                <!--Grid row-->
-                            </form>
-                        </section>
-                        <!-- Section: Form -->
-                    </div>
-                    <!-- Grid container -->
+                   
 
                     <!-- Copyright -->
                     <div
