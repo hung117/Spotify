@@ -16,7 +16,10 @@
     </head>
     <!-- <body class="d-flex flex-column min-vh-100"> -->
     <body class="d-flex flex-column h-100">
-        <!-- <div class="container-md h-100" style="min-height: 100vh"> -->
+        <div
+            class="container-sm h-100"
+            style="background: white; min-height: 100vh"
+        >
             <!-- <div class="p-2 bg-dark bg-green text-white"> -->
             <div class="p-2 bg-green text-white">
                 <p>Spotify Clone</p>
@@ -34,11 +37,23 @@
                         >
                             Genres
                         </button>
-                        <ul id="genres"class="dropdown-menu" aria-labelledby="GenreSelectBtn">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <ul
+                            id="genres"
+                            class="dropdown-menu"
+                            aria-labelledby="GenreSelectBtn"
+                        >
                             <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="#">Action</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"
+                                    >Another action</a
+                                >
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"
+                                    >Something else here</a
+                                >
                             </li>
                         </ul>
                     </div>
@@ -60,11 +75,23 @@
                             >
                                 Playlist select
                             </button>
-                            <ul id="playlists" class="dropdown-menu" aria-labelledby="playListSelectBtn">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <ul
+                                id="playlists"
+                                class="dropdown-menu"
+                                aria-labelledby="playListSelectBtn"
+                            >
                                 <li>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Another action</a
+                                    >
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Something else here</a
+                                    >
                                 </li>
                             </ul>
                         </div>
@@ -76,21 +103,30 @@
                 <div class="row">
                     <div class="input-group">
                         <input
-                            id="SearchBar",
+                            id="SearchBar"
+                            ,
                             type="search"
                             class="form-control rounded p-3"
                             placeholder="Search"
                             aria-label="Search"
                             aria-describedby="search-addon"
->                        
-                        <button type="button" onclick="search()" class="btn btn-outline-primary">
+                        />
+                        <button
+                            type="button"
+                            onclick="search()"
+                            class="btn btn-outline-primary"
+                        >
                             search
                         </button>
                     </div>
                 </div>
             </div>
             <audio id="audioPlayer" controls autoplay>
-                <source id="audioSrc" src="https://p.scdn.co/mp3-preview/d42c5c4517fc4177356eefea9bf8898328e04a99?cid=a8ab14dd726d49989bc6acf948555f01" type="audio/mpeg">
+                <source
+                    id="audioSrc"
+                    src="https://p.scdn.co/mp3-preview/d42c5c4517fc4177356eefea9bf8898328e04a99?cid=a8ab14dd726d49989bc6acf948555f01"
+                    type="audio/mpeg"
+                />
                 Your browser does not support the audio element.
             </audio>
             <div class="row mt-5">
@@ -99,7 +135,6 @@
                         <li
                             class="list-group-item disabled"
                             aria-disabled="true"
-                            
                         >
                             Result
                         </li>
@@ -109,9 +144,12 @@
                         <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
                 </div>
-           
-                <div class="col-md-7  "id="songDetail_Card">
-                    <div class="card mb-3 h-md-75 h-sm-100" style="max-width: 540px">
+
+                <div class="col-md-7" id="songDetail_Card">
+                    <div
+                        class="card mb-3 h-md-75 h-sm-100"
+                        style="max-width: 540px"
+                    >
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img
@@ -136,7 +174,61 @@
             <div class="footer mt-auto">
                 <footer class="bg-green text-center text-white">
                     <!-- Grid container -->
-                   
+                    <div class="container p-4 pb-0">
+                        <!-- Section: Form -->
+                        <section class="">
+                            <form action="">
+                                <!--Grid row-->
+                                <div class="row d-flex justify-content-center">
+                                    <!--Grid column-->
+                                    <div class="col-auto">
+                                        <p class="pt-2">
+                                            <strong
+                                                >Sign up for our
+                                                newsletter</strong
+                                            >
+                                        </p>
+                                    </div>
+                                    <!--Grid column-->
+
+                                    <!--Grid column-->
+                                    <div class="col-md-5 col-12">
+                                        <!-- Email input -->
+                                        <div
+                                            class="form-outline form-white mb-4"
+                                        >
+                                            <input
+                                                type="email"
+                                                id="form5Example29"
+                                                class="form-control"
+                                            />
+                                            <label
+                                                class="form-label"
+                                                for="form5Example29"
+                                                >Email address</label
+                                            >
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+
+                                    <!--Grid column-->
+                                    <div class="col-auto">
+                                        <!-- Submit button -->
+                                        <button
+                                            type="submit"
+                                            class="btn btn-outline-light mb-4"
+                                        >
+                                            Subscribe
+                                        </button>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                            </form>
+                        </section>
+                        <!-- Section: Form -->
+                    </div>
+                    <!-- Grid container -->
 
                     <!-- Copyright -->
                     <div
